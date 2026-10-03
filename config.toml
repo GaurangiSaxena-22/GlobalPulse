@@ -1,0 +1,11 @@
+[theme]
+# Primary accent color (Warm terracotta/earthy brown)
+primaryColor = "#c28b5e"
+# Background color (Soft, light beige)
+backgroundColor = "#f5f0e6"
+# Secondary background for cards and sidebar (Slightly darker beige)
+secondaryBackgroundColor = "#ebdccb"
+# Text color (Dark espresso brown for high readability)
+textColor = "#38302a"
+# Font choice
+font = "sans serif"
