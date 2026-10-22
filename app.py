@@ -99,9 +99,7 @@ with st.sidebar:
         format_func=lambda x: x.capitalize()
     )
 
-    st.divider()
-    if st.button("🔄 Refresh Data", use_container_width=True):
-        st.rerun()
+   
 
     st.markdown("---")
     st.caption("🤖 **Models in Pipeline:**")
@@ -144,7 +142,7 @@ with col_m4:
 st.write("\n")
 
 # --- CATEGORY TABS ---
-tab_all, tab_scientific, tab_econ, tab_conflict = st.tabs([
+tab_all, tab_science, tab_econ, tab_conflict = st.tabs([
     "All Intelligence", 
     "🔬 Scientific breakthrough or technology", 
     "📈 Macroeconomics", 
@@ -179,8 +177,8 @@ with tab_all:
     render_feed(filtered_data)
 
 with tab_science:
-    scientific_items = [i for i in filtered_data if "science" in i.get('category', '').lower()]
-    render_feed(scientific_items)
+    science_items = [i for i in filtered_data if "scientific" in i.get('category', '').lower()]
+    render_feed(science_items)
 
 with tab_econ:
     econ_items = [i for i in filtered_data if "macroeconomics" in i.get('category', '').lower()]
