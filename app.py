@@ -2,7 +2,7 @@ import streamlit as st
 from supabase import create_client, Client
 from datetime import datetime
 
-# --- PAGE CONFIGURATION ---
+
 st.set_page_config(
     page_title="Global Pulse",
     page_icon="🌐",
@@ -10,8 +10,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS INJECTION ---
-# --- CUSTOM CSS INJECTION ---
 st.markdown("""
 <style>
     /* Warm gradient text for the main title */
@@ -148,7 +146,7 @@ st.write("\n")
 # --- CATEGORY TABS ---
 tab_all, tab_science, tab_econ, tab_conflict = st.tabs([
     "All Intelligence", 
-    "🔬 Science & Tech", 
+    "🔬 scientific breakthrough or technology", 
     "📈 Macroeconomics", 
     "🌍 Geopolitics & Crisis"
 ])
