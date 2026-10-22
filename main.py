@@ -13,8 +13,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def run_news_pipeline():
     print("1. Fetching news across multiple categories...")
-    
-    # We will query these 4 specific categories to get 40 articles total
+ 
     gnews_categories = ['world', 'business', 'technology', 'science']
     all_raw_articles = []
     
@@ -29,7 +28,7 @@ def run_news_pipeline():
         else:
             print(f"   Failed to fetch '{cat}'.")
             
-        # Pause for 1 second between requests to avoid overwhelming the free API
+       
         time.sleep(1) 
         
     print(f"\nTotal raw articles fetched: {len(all_raw_articles)}")
@@ -53,17 +52,17 @@ def run_news_pipeline():
         headline = article.get('title', '')
         summary = article.get('description', '') or headline
         
-        # Filter Noise
+      
         filter_res = classifier(headline, categories)
         top_cat = filter_res['labels'][0]
         
         if top_cat in ["petty local politics", "entertainment and gossip"]:
             continue
             
-        # Sentiment Analysis
+       
         sentiment_res = sentiment_analyzer(summary[:512])[0]
         
-        # Save to Supabase (using upsert to prevent duplicates)
+      
         try:
             supabase.table('global_pulse').upsert({
                 "title": headline,
@@ -77,7 +76,7 @@ def run_news_pipeline():
             print(f"✅ Saved to DB: {headline}")
             saved_count += 1
         except Exception as e:
-            # It will silently skip duplicate URLs if you set up the constraint!
+         
             pass
             
     print(f"\nPipeline finished. {saved_count} new high-value stories saved.")
